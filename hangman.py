@@ -27,7 +27,7 @@ def hangman():
                     None
             used.append(guess)
             print (progress)
-            print ("Your guesses: " + str(used))
+            print ("Your guesses: " + str(used) + '\n')
         else:
             attempts = attempts - 1
             final += 1
