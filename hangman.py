@@ -1,9 +1,6 @@
-
 import random
 f = open("randwords.txt")
 a = f.readlines()
-
-
 
 def hangman():
     global word
@@ -18,10 +15,10 @@ def hangman():
     global final
     final = len(used)
     while c in progress:
-        guess = raw_input("Guess a letter: ").lower() 
+        guess = input("Guess a letter: ").lower() 
         if guess in word: 
             number = str(word.count(guess)) 
-            print "Nice! The letter, " + str(guess) + ", is in the word " + number + " times."    
+            print ("Nice! The letter, " + str(guess) + ", is in the word " + number + " times.")    
             for g in range(len(word)):
                 if guess in word[g]:
                     progress[g] = guess
@@ -29,24 +26,24 @@ def hangman():
                 else:
                     None
             used.append(guess)
-            print progress
-            print "Your guesses: " + str(used)
+            print (progress)
+            print ("Your guesses: " + str(used))
         else:
             attempts = attempts - 1
             final += 1
             used.append(guess)
-            print "Nope, you have " + str(attempts) + " tries left."
-            print progress
-            print "Your guesses: " + str(used)
+            print ("Nope, you have " + str(attempts) + " tries left.")
+            print (progress)
+            print ("Your guesses: " + str(used))
         if attempts == 0:
-            print "YOU DIED"
-            print "The word was " + word.upper() + "."
+            print ("YOU DIED")
+            print ("The word was " + word.upper() + ".")
             quit()
 
 
 print ("Welcome to Hangman! Enter 'START' to begin game.")
 
-x = raw_input().upper()
+x = input().upper()
 
 if x == "START":
     hangman()
